@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Content Planning",
     "Brand Research",
   ],
-  authors: [{ name: "Satyam Sharma", url: "https://satyamsharma.com" }],
+  authors: [{ name: "Satyam Sharma", url: "https://brandwithsatyam.com" }],
   creator: "Satyam Sharma",
   publisher: "Satyam Sharma",
   robots: {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://satyamsharma.com",
+    url: "https://brandwithsatyam.com",
     title: "Satyam Sharma – Video Editor & Content Strategist",
     description:
       "Transforming raw footage into polished, purpose-driven content. Expert in video editing and end-to-end content strategy.",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://satyamsharma.com",
+    canonical: "https://brandwithsatyam.com",
   },
   category: "Video Production",
 };
@@ -99,10 +99,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Satyam Sharma",
-              url: "https://satyamsharma.com",
+              url: "https://brandwithsatyam.com",
               image: "/og-image.png",
               sameAs: [
-                "https://satyamsharma.com",
+                "https://brandwithsatyam.com",
                 "https://linkedin.com/in/satyamsharma",
                 "https://github.com/satyamsharma",
                 "https://twitter.com/satyam_sharma",
