@@ -32,9 +32,9 @@ export default function HomePage() {
               </span>
             </h2>
             <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-              From intuitive user interfaces to robust backend architectures and
-              seamless animations — I focus on creating digital products that are not just functional, but
-              <span className="text-blue-400 font-medium"> exceptional</span>.
+              From cinematic brand films to high-energy commercial edits — I focus
+              on crafting visual stories that are not just seen, but
+              <span className="text-blue-400 font-medium"> felt</span>.
             </p>
           </div>
 
@@ -61,34 +61,34 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Frontend Development",
-                description: "Building responsive and interactive UIs using React and Next.js.",
-                icon: "💻",
+                title: "Video Editing",
+                description: "Professional editing with Premiere Pro and Photoshop.",
+                icon: "🎬",
               },
               {
-                title: "Backend Solutions",
-                description: "Scalable server-side logic and database management.",
-                icon: "⚙️",
+                title: "Content Strategy",
+                description: "Planning what, where, and how to post for maximum impact.",
+                icon: "📈",
               },
               {
-                title: "UI/UX Design",
-                description: "Creating user-centric designs that are both beautiful and functional.",
-                icon: "🎨",
+                title: "Motion Graphics",
+                description: "Adding dynamic visual elements and kinetic typography.",
+                icon: "✨",
               },
               {
-                title: "Mobile Responsive",
-                description: "Ensuring your web app looks great on every device.",
+                title: "Brand Research",
+                description: "In-depth analysis to tailor content to your brand voice.",
+                icon: "🔍",
+              },
+              {
+                title: "Storytelling",
+                description: "Crafting narratives that resonate with your target audience.",
+                icon: "📖",
+              },
+              {
+                title: "Platform Optimization",
+                description: "Tailoring content for YouTube, Instagram, and more.",
                 icon: "📱",
-              },
-              {
-                title: "Performance Optimization",
-                description: "Making sure your website is fast and SEO-friendly.",
-                icon: "⚡",
-              },
-              {
-                title: "API Integration",
-                description: "Connecting your app to third-party services seamlessly.",
-                icon: "🔌",
               },
             ].map((service, index) => (
               <div key={service.title} className="h-full">

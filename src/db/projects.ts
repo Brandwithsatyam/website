@@ -13,7 +13,7 @@ export const allVideoProjects: VideoProject[] = [
     client_name: "Nike",
     client_image: "/clients/nike.png",
     duration: "1:30",
-    software_used: ["Premiere Pro", "After Effects", "DaVinci Resolve"],
+    software_used: ["Premiere Pro", "After Effects", "Photoshop"],
     client_feedback: "Satyam perfectly captured the energy we were looking for. The pacing is spot on!",
     project_images: [
       "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800&h=450",
@@ -32,7 +32,7 @@ export const allVideoProjects: VideoProject[] = [
     client_name: "National Geographic (Freelance)",
     client_image: "/clients/natgeo.png",
     duration: "12:45",
-    software_used: ["DaVinci Resolve", "Premiere Pro"],
+    software_used: ["Photoshop", "Premiere Pro"],
     client_feedback: "The narrative flow is beautiful. Satyam handled the sensitive footage with great care.",
     project_images: [
       "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=800&h=450",
@@ -51,7 +51,7 @@ export const allVideoProjects: VideoProject[] = [
     client_name: "Private Client",
     client_image: "/clients/wedding.png",
     duration: "5:20",
-    software_used: ["Premiere Pro", "DaVinci Resolve"],
+    software_used: ["Premiere Pro", "Photoshop"],
     client_feedback: "We are speechless. This film is more beautiful than we ever imagined.",
     project_images: [
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800&h=450",

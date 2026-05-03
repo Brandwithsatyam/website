@@ -53,7 +53,7 @@ export default function AboutPage() {
               header={
                 <div className="relative w-full h-full min-h-[28rem] md:min-h-[16rem] rounded-xl overflow-hidden group-hover/bento:scale-[1.02] transition-transform duration-500">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=800"
+                    src="/satyam-profile.png"
                     alt="Satyam"
                     fill
                     className="object-cover object-top grayscale-[0] hover:grayscale-0 transition-all duration-500"
@@ -68,8 +68,8 @@ export default function AboutPage() {
                       transition={{ delay: 0.2 }}
                       className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter"
                     >
-                      SATYAM<br />
-                      <span className="text-blue-500">SHARMA</span>
+                      BRAND WITH<br />
+                      <span className="text-blue-500">SATYAM</span>
                     </m.div>
                     <div className="h-1 w-16 md:w-20 bg-purple-500 mt-4 rounded-full" />
                     <p className="text-gray-300 mt-4 text-xs md:text-sm font-medium tracking-wide uppercase">
@@ -172,9 +172,9 @@ export default function AboutPage() {
               description=""
               header={
                 <div className="flex flex-1 h-full w-full items-center justify-between px-6 bg-gradient-to-r from-neutral-900 to-neutral-800 rounded-xl border border-white/5 py-4 md:py-0 min-h-[5rem]">
-                  <a href="https://linkedin.com/in/satyam" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#0077b5] hover:scale-110 transition-all duration-300 text-white"><Linkedin size={20} /></a>
-                  <a href="https://github.com/satyam" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-neutral-700 hover:scale-110 transition-all duration-300 text-white"><Github size={20} /></a>
-                  <a href="https://twitter.com/satyam_dev" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-blue-400 hover:scale-110 transition-all duration-300 text-white"><Facebook size={20} /></a>
+                  <a href="https://linkedin.com/in/satyamsharma" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-[#0077b5] hover:scale-110 transition-all duration-300 text-white"><Linkedin size={20} /></a>
+                  <a href="https://instagram.com/brandwithsatyam" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:scale-110 transition-all duration-300 text-white"><Instagram size={20} /></a>
+                  <a href="https://youtube.com/@brandwithsatyam" target="_blank" className="p-3 bg-white/5 rounded-full hover:bg-red-600 hover:scale-110 transition-all duration-300 text-white"><Youtube size={20} /></a>
                 </div>
               }
               className="h-full"
@@ -194,13 +194,13 @@ export default function AboutPage() {
         >
           <div className="space-y-8 text-gray-300 leading-relaxed text-lg font-light">
             <p>
-              Satyam Sharma is a professional video editor and visual content creator with over 3 years of experience crafting compelling narratives for brands, events, and documentary projects. With a sharp eye for storytelling and a deep understanding of visual communication, Satyam transforms raw footage into polished, purpose-driven content that resonates with audiences.
+              I am the creative force behind <strong>Brand with Satyam</strong>, a professional video editor and visual content creator with over 3 years of experience crafting compelling narratives for brands, events, and documentary projects. With a sharp eye for storytelling and a deep understanding of visual communication, I transform raw footage into polished, purpose-driven content that resonates with audiences.
             </p>
             <p>
-              Beyond editing, Satyam offers end-to-end content strategy — from in-depth brand research and platform analysis to planning what to post, where to post it, and how to deliver it for maximum impact. Whether working with emerging brands or established businesses, he brings a structured, data-informed approach to help clients build a consistent and powerful digital presence.
+              Beyond editing, I offer end-to-end content strategy through <strong>Brand with Satyam</strong> — from in-depth brand research and platform analysis to planning what to post, where to post it, and how to deliver it for maximum impact. Whether working with emerging brands or established businesses, I bring a structured, data-informed approach to help clients build a consistent and powerful digital presence.
             </p>
             <p>
-              From wedding films to commercial campaigns, every project is handled with precision, creativity, and a commitment to quality. He specializes in commercial & brand content, documentary/storytelling films, events & weddings.
+              From wedding films to commercial campaigns, I handle every project with precision, creativity, and a commitment to quality. I specialize in commercial & brand content, documentary/storytelling films, and events & weddings.
             </p>
           </div>
         </m.div>

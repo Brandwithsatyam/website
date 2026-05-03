@@ -15,23 +15,23 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      name: "GitHub",
-      href: "https://github.com/satyam",
-      icon: Linkedin, // I'll change this icon later if needed, or keep it for now
-    },
-    {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/satyam",
+      href: "https://www.linkedin.com/in/satyamsharma",
       icon: Linkedin,
     },
     {
-      name: "Twitter",
-      href: "https://twitter.com/satyam_dev",
-      icon: Twitter,
+      name: "Instagram",
+      href: "https://instagram.com/brandwithsatyam",
+      icon: Instagram,
+    },
+    {
+      name: "YouTube",
+      href: "https://youtube.com/@brandwithsatyam",
+      icon: Youtube,
     },
     {
       name: "Email",
-      href: "mailto:satyam@example.com",
+      href: "mailto:Brandwithsatyam@gmail.com",
       icon: Mail,
     },
   ];
@@ -43,11 +43,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-              Satyam
+              Brand with Satyam
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Full Stack Developer passionate about building high-quality web
-              applications and digital experiences.
+              Professional Video Editor & Content Strategist crafting compelling
+              narratives and purpose-driven content for global brands.
             </p>
           </div>
 

@@ -95,10 +95,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
                     <a
-                      href="mailto:satyam@example.com"
+                      href="mailto:Brandwithsatyam@gmail.com"
                       className="text-white hover:text-blue-400 transition-colors"
                     >
-                      satyam@example.com
+                      Brandwithsatyam@gmail.com
                     </a>
                   </div>
                 </div>
@@ -110,12 +110,12 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-sm">WhatsApp</p>
                     <a
-                      href="https://wa.me/your_number"
+                      href="https://wa.me/919981743212"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white hover:text-green-400 transition-colors"
                     >
-                      +91 (XXX) XXX-XXXXX
+                      +91 99817 43212
                     </a>
                   </div>
                 </div>
@@ -160,10 +160,10 @@ export default function ContactPage() {
                   <div className="bg-green-600 w-2 h-2 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
                     <h4 className="font-medium text-white">
-                      Scalable Solutions
+                      Strategic Approach
                     </h4>
                     <p className="text-gray-400 text-sm">
-                      Clean code and robust architectures
+                      Content tailored for growth and engagement
                     </p>
                   </div>
                 </div>
@@ -241,12 +241,11 @@ export default function ContactPage() {
                     className="w-full bg-white/[0.03] border border-white/10 text-white rounded-xl px-4 py-3 h-12 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all custom-select"
                   >
                     <option value="" className="bg-gray-900 text-gray-400">Select project type</option>
-                    <option value="web-app" className="bg-gray-900">Web Application</option>
-                    <option value="ecommerce" className="bg-gray-900">E-commerce Site</option>
-                    <option value="landing-page" className="bg-gray-900">Landing Page</option>
-                    <option value="ui-ux" className="bg-gray-900">UI/UX Design</option>
-                    <option value="api" className="bg-gray-900">API Development</option>
-                    <option value="mobile-app" className="bg-gray-900">Mobile App</option>
+                    <option value="commercial" className="bg-gray-900">Commercial & Brand Content</option>
+                    <option value="documentary" className="bg-gray-900">Documentary & Storytelling</option>
+                    <option value="events" className="bg-gray-900">Events & Weddings</option>
+                    <option value="social-media" className="bg-gray-900">Social Media Content</option>
+                    <option value="strategy" className="bg-gray-900">Content Strategy</option>
                     <option value="other" className="bg-gray-900">Other</option>
                   </select>
                 </div>
@@ -298,7 +297,7 @@ export default function ContactPage() {
                 <p className="text-gray-400 text-sm text-center">
                   Prefer to chat directly? Reach out on{" "}
                   <a
-                    href="https://wa.me/your_number"
+                    href="https://wa.me/919981743212"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green-400 hover:text-green-300"

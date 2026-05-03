@@ -19,22 +19,22 @@ export const videoEditingSkills = [
   {
     name: "Adobe Premiere Pro",
     description: "Expert-level non-linear editing, color grading, and audio syncing.",
-    image_link: "/tools/premiere.png",
+    image_link: "/tools/Adobe_Premiere_Pro_CC.png",
   },
   {
-    name: "DaVinci Resolve",
-    description: "Professional color correction and advanced color grading workflows.",
-    image_link: "/tools/davinci.png",
+    name: "Adobe Photoshop",
+    description: "Professional thumbnail design, image manipulation, and visual assets.",
+    image_link: "/tools/Adobe_Photoshop_CC.png",
   },
   {
     name: "Adobe After Effects",
     description: "Creating motion graphics, kinetic typography, and visual effects.",
-    image_link: "/tools/ae.png",
+    image_link: "/tools/Adobe_After_Effects_CC.png",
   },
   {
-    name: "Content Strategy",
-    description: "Research, planning, and platform optimization for brand growth.",
-    image_link: "/tools/strategy.png",
+    name: "Adobe Audition",
+    description: "Advanced audio cleanup, noise reduction, and sound mastering.",
+    image_link: "/tools/Adobe_Audition_CC.png",
   },
 ];
 

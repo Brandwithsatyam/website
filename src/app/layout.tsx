@@ -17,8 +17,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Satyam Sharma – Video Editor & Content Strategist",
-    template: "%s | Satyam Sharma",
+    default: "Brand with Satyam – Video Editor & Content Strategist",
+    template: "%s | Brand with Satyam",
   },
   description:
     "Professional video editor and visual content creator with over 3 years of experience. Specializing in commercial campaigns, brand films, and documentary-style storytelling.",
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://brandwithsatyam.com",
-    title: "Satyam Sharma – Video Editor & Content Strategist",
+    title: "Brand with Satyam – Video Editor & Content Strategist",
     description:
       "Transforming raw footage into polished, purpose-driven content. Expert in video editing and end-to-end content strategy.",
-    siteName: "Satyam Sharma Portfolio",
+    siteName: "Brand with Satyam",
     images: [
       {
         url: "/og-image.png",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Satyam Sharma – Video Editor & Content Strategist",
+    title: "Brand with Satyam – Video Editor & Content Strategist",
     description:
       "Professional video editing and content strategy for brands and creators.",
     creator: "@satyam_sharma",
@@ -98,7 +98,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Satyam Sharma",
+              name: "Brand with Satyam",
               url: "https://brandwithsatyam.com",
               image: "/og-image.png",
               sameAs: [
