@@ -86,9 +86,15 @@ export function getClients(): Client[] {
   return clientsData;
 }
 
-// Helper function to get the proper embed link
-export const getYouTubeEmbedUrl = (url: string): string | null => {
+// Helper function to get the proper embed link for YouTube or Instagram
+export const getVideoEmbedUrl = (url: string): string | null => {
   if (!url) return null;
+
+  // Handle Instagram Reels
+  if (url.includes("instagram.com/reel/")) {
+    const match = url.match(/instagram\.com\/reel\/([a-zA-Z0-9_-]+)/);
+    return match ? `https://www.instagram.com/reel/${match[1]}/embed/` : null;
+  }
 
   // Handle Shorts
   if (url.includes("youtube.com/shorts/")) {
@@ -101,6 +107,11 @@ export const getYouTubeEmbedUrl = (url: string): string | null => {
     /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|.+\?v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
   );
   return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+};
+
+// Keep old function for backward compatibility
+export const getYouTubeEmbedUrl = (url: string): string | null => {
+  return getVideoEmbedUrl(url);
 };
 
 // Legacy support - keep the old structure for backward compatibility if needed

@@ -21,7 +21,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden pt-28 sm:pt-20">
             {/* Background Ambience - Deepened and refined */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-blue-900/15 rounded-[100%] blur-[120px] animate-pulse-slow" />

@@ -87,6 +87,7 @@ export default function SkillsPage() {
                         alt={skill.name}
                         fill
                         className="object-contain"
+                        sizes="(max-width: 768px) 48px, 64px"
                       />
                     </div>
                     <h3 className="text-lg font-semibold text-white">

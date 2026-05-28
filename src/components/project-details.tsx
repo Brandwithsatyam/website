@@ -23,7 +23,7 @@ import {
     Quote,
     ExternalLink,
 } from "lucide-react";
-import { getYouTubeEmbedUrl } from "@/lib/helper";
+import { getVideoEmbedUrl } from "@/lib/helper";
 import type { VideoProject } from "@/types/videos";
 
 interface ProjectDetailsProps {
@@ -32,7 +32,8 @@ interface ProjectDetailsProps {
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
     const [showVideo, setShowVideo] = useState(false);
-    const embedUrl = getYouTubeEmbedUrl(project.video_link);
+    const embedUrl = getVideoEmbedUrl(project.video_link);
+    const isVertical = project.category.includes("Reels") || project.category.includes("Shorts") || project.video_link.includes("instagram.com");
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-4">
@@ -63,45 +64,97 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                     transition={{ duration: 0.5 }}
                     className="mb-8"
                 >
-                    <GlassmorphismCard className="p-4 md:p-6">
-                        <div className="aspect-video relative rounded-lg overflow-hidden bg-gray-900">
-                            {showVideo && embedUrl ? (
-                                <iframe
-                                    src={`${embedUrl}?autoplay=1&modestbranding=1&rel=0`}
-                                    title={project.video_title}
-                                    className="w-full h-full"
-                                    allowFullScreen
-                                    allow="autoplay; encrypted-media"
-                                />
-                            ) : (
-                                <div className="relative w-full h-full">
-                                    <Image
-                                        src={
-                                            project.cover_image && project.cover_image.startsWith('http')
-                                                ? project.cover_image
-                                                : project.cover_image
-                                                ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
-                                                : "/placeholder.svg"
-                                        }
-                                        alt={project.video_title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    {embedUrl && (
-                                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                                            <Button
-                                                onClick={() => setShowVideo(true)}
-                                                size="lg"
-                                                className="bg-blue-600 hover:bg-blue-700 cursor-pointer"
-                                            >
-                                                <Play className="mr-2" size={24} />
-                                                Play Preview
-                                            </Button>
+                    <GlassmorphismCard className="p-4 md:p-6 flex flex-col items-center justify-center">
+                        {isVertical ? (
+                            /* Premium iPhone Mockup Frame */
+                            <div className="relative w-full max-w-[320px] sm:max-w-[340px] aspect-[9/19.5] mx-auto rounded-[3rem] p-3 bg-black ring-8 ring-slate-900/50 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] border-4 border-slate-800/80 overflow-hidden isolate my-4">
+                                {/* Dynamic Island / Notch */}
+                                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full z-30 flex items-center justify-end px-4">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-slate-900 border border-indigo-900/40 mr-2 animate-pulse" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-900/60" />
+                                </div>
+                                
+                                {/* Inner screen area */}
+                                <div className="w-full h-full rounded-[2.2rem] overflow-hidden bg-slate-950 relative">
+                                    {showVideo && embedUrl ? (
+                                        <iframe
+                                            src={project.video_link.includes("instagram.com") ? embedUrl : `${embedUrl}?autoplay=1&modestbranding=1&rel=0`}
+                                            title={project.video_title}
+                                            className="w-full h-full border-0 absolute inset-0 z-10"
+                                            allowFullScreen
+                                            allow="autoplay; encrypted-media"
+                                        />
+                                    ) : (
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={
+                                                    project.cover_image && project.cover_image.startsWith('http')
+                                                        ? project.cover_image
+                                                        : project.cover_image
+                                                        ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
+                                                        : "/placeholder.svg"
+                                                }
+                                                alt={project.video_title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                            {embedUrl && (
+                                                <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20 backdrop-blur-[1px]">
+                                                    <Button
+                                                        onClick={() => setShowVideo(true)}
+                                                        size="lg"
+                                                        className="bg-blue-600 hover:bg-blue-700 cursor-pointer shadow-lg hover:shadow-blue-500/20 px-6 py-3 rounded-full hover:scale-105 transition-all duration-300"
+                                                    >
+                                                        <Play className="mr-2" size={20} />
+                                                        Play Reel
+                                                    </Button>
+                                                </div>
+                                            )}
                                         </div>
                                     )}
                                 </div>
-                            )}
-                        </div>
+                            </div>
+                        ) : (
+                            /* Standard 16:9 Landscape Player */
+                            <div className="aspect-video relative rounded-lg overflow-hidden bg-gray-900 w-full">
+                                {showVideo && embedUrl ? (
+                                    <iframe
+                                        src={`${embedUrl}?autoplay=1&modestbranding=1&rel=0`}
+                                        title={project.video_title}
+                                        className="w-full h-full"
+                                        allowFullScreen
+                                        allow="autoplay; encrypted-media"
+                                    />
+                                ) : (
+                                    <div className="relative w-full h-full">
+                                        <Image
+                                            src={
+                                                project.cover_image && project.cover_image.startsWith('http')
+                                                    ? project.cover_image
+                                                    : project.cover_image
+                                                    ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
+                                                    : "/placeholder.svg"
+                                            }
+                                            alt={project.video_title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                        {embedUrl && (
+                                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                                <Button
+                                                    onClick={() => setShowVideo(true)}
+                                                    size="lg"
+                                                    className="bg-blue-600 hover:bg-blue-700 cursor-pointer"
+                                                >
+                                                    <Play className="mr-2" size={24} />
+                                                    Play Preview
+                                                </Button>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </GlassmorphismCard>
                 </m.div>
 
@@ -196,14 +249,14 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             {project.video_link !== "#" && (
-                                <Button asChild className="bg-blue-600 hover:bg-blue-700">
+                                <Button asChild className="bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-blue-500/20 px-6 py-3 rounded-full hover:scale-105 transition-all duration-300">
                                     <a
                                         href={project.video_link}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         <ExternalLink className="mr-2" size={16} />
-                                        View Live Project
+                                        {project.video_link.includes("instagram.com") ? "View on Instagram" : "View on YouTube"}
                                     </a>
                                 </Button>
                             )}

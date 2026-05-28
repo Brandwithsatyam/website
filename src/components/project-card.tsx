@@ -9,6 +9,7 @@ import GlassmorphismCard from "@/components/glassmorphism-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { VideoProject } from "@/types/videos";
+import { getVideoEmbedUrl } from "@/lib/helper";
 
 interface ProjectCardProps {
     project: VideoProject;
@@ -17,6 +18,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
     const [isPlaying, setIsPlaying] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
+    const embedUrl = getVideoEmbedUrl(project.video_link);
 
     // Handle click outside to stop playing
     useEffect(() => {
@@ -62,9 +64,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                     exit={{ opacity: 0 }}
                                     className="absolute inset-0 z-20"
                                 >
-                                    {!project.cover_image.startsWith('http') ? (
+                                    {embedUrl ? (
                                         <iframe
-                                            src={`https://www.youtube.com/embed/${project.cover_image}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1`}
+                                            src={project.video_link.includes("instagram.com") ? embedUrl : `${embedUrl}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1`}
                                             title={project.video_title}
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen
@@ -72,7 +74,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                         />
                                     ) : (
                                         <div className="w-full h-full bg-black/80 flex items-center justify-center p-6 text-center text-sm text-gray-300">
-                                            Video preview only available for YouTube projects.
+                                            Video preview not available.
                                         </div>
                                     )}
                                     <button
@@ -106,7 +108,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
-                                        className="w-full h-full"
+                                        className="w-full h-full relative"
                                     >
                                         <Image
                                             src={project.cover_image.startsWith('http') ? project.cover_image : `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
@@ -170,7 +172,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-xs font-medium text-white line-clamp-1 max-w-[100px] truncate">{project.client_name}</span>
-                                    <span className="text-[10px] text-gray-500">{new Date(project.publish_date).toLocaleDateString()}</span>
+                                    <span className="text-[10px] text-gray-500">
+                                        {new Date(project.publish_date).toLocaleDateString("en-US", {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric"
+                                        })}
+                                    </span>
                                 </div>
                             </div>
 
