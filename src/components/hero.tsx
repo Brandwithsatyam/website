@@ -21,7 +21,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden pt-28 sm:pt-20">
+        <section className="relative min-h-screen flex flex-col items-center justify-between overflow-hidden pt-28 pb-8 sm:pt-20 sm:pb-12">
             {/* Background Ambience - Deepened and refined */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-blue-900/15 rounded-[100%] blur-[120px] animate-pulse-slow" />
@@ -29,7 +29,7 @@ export default function Hero() {
                 <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[120px]" />
             </div>
 
-            <div className="relative z-10 text-center px-4 md:px-8 max-w-6xl mx-auto w-full">
+            <div className="relative z-10 text-center px-4 md:px-8 max-w-6xl mx-auto w-full flex-1 flex flex-col items-center justify-center">
                 {/* Badge */}
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
@@ -108,7 +108,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1.5 }}
-                className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2"
+                className="relative z-10 mt-auto flex justify-center w-full"
             >
                 <button
                     onClick={scrollToProjects}
