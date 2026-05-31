@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { m } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,6 +34,26 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
     const [showVideo, setShowVideo] = useState(false);
     const embedUrl = getVideoEmbedUrl(project.video_link);
     const isVertical = project.category.includes("Reels") || project.category.includes("Shorts") || project.video_link.includes("instagram.com");
+    const [thumbnailUrl, setThumbnailUrl] = useState(
+        project.cover_image && project.cover_image.startsWith('http')
+            ? project.cover_image
+            : project.cover_image
+            ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
+            : "/placeholder.svg"
+    );
+
+    useEffect(() => {
+        if (project.video_link && project.video_link.includes("instagram.com")) {
+            fetch(`/api/instagram-thumbnail?url=${encodeURIComponent(project.video_link)}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.thumbnailUrl) {
+                        setThumbnailUrl(data.thumbnailUrl);
+                    }
+                })
+                .catch((err) => console.error("Error fetching Instagram thumbnail:", err));
+        }
+    }, [project.video_link]);
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-4">
@@ -87,13 +107,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                     ) : (
                                         <div className="relative w-full h-full">
                                             <Image
-                                                src={
-                                                    project.cover_image && project.cover_image.startsWith('http')
-                                                        ? project.cover_image
-                                                        : project.cover_image
-                                                        ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
-                                                        : "/placeholder.svg"
-                                                }
+                                                src={thumbnailUrl}
                                                 alt={project.video_title}
                                                 fill
                                                 className="object-cover"
@@ -128,13 +142,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                 ) : (
                                     <div className="relative w-full h-full">
                                         <Image
-                                            src={
-                                                project.cover_image && project.cover_image.startsWith('http')
-                                                    ? project.cover_image
-                                                    : project.cover_image
-                                                    ? `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
-                                                    : "/placeholder.svg"
-                                            }
+                                            src={thumbnailUrl}
                                             alt={project.video_title}
                                             fill
                                             className="object-cover"

@@ -19,6 +19,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const [isPlaying, setIsPlaying] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
     const embedUrl = getVideoEmbedUrl(project.video_link);
+    const [thumbnailUrl, setThumbnailUrl] = useState(
+        project.cover_image.startsWith('http') ? project.cover_image : `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
+    );
+
+    useEffect(() => {
+        if (project.video_link.includes("instagram.com")) {
+            fetch(`/api/instagram-thumbnail?url=${encodeURIComponent(project.video_link)}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.thumbnailUrl) {
+                        setThumbnailUrl(data.thumbnailUrl);
+                    }
+                })
+                .catch((err) => console.error("Error fetching Instagram thumbnail:", err));
+        }
+    }, [project.video_link]);
 
     // Handle click outside to stop playing
     useEffect(() => {
@@ -111,7 +127,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                         className="w-full h-full relative"
                                     >
                                         <Image
-                                            src={project.cover_image.startsWith('http') ? project.cover_image : `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`}
+                                            src={thumbnailUrl}
                                             alt={project.video_title}
                                             fill
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
