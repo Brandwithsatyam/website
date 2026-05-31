@@ -33,7 +33,7 @@ export async function generateMetadata({
       description: project.video_description,
       images: [
         {
-          url: `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`,
+          url: project.cover_image.startsWith('http') ? project.cover_image : `https://img.youtube.com/vi/${project.cover_image}/hqdefault.jpg`,
           width: 1280,
           height: 720,
           alt: project.video_title,

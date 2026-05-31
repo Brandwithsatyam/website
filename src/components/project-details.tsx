@@ -111,6 +111,11 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                                 alt={project.video_title}
                                                 fill
                                                 className="object-cover"
+                                                onError={() => {
+                                                    if (project.cover_image && !project.cover_image.startsWith('http')) {
+                                                        setThumbnailUrl(`https://img.youtube.com/vi/${project.cover_image}/hqdefault.jpg`);
+                                                    }
+                                                }}
                                             />
                                             {embedUrl && (
                                                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20 backdrop-blur-[1px]">
@@ -146,6 +151,11 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                             alt={project.video_title}
                                             fill
                                             className="object-cover"
+                                            onError={() => {
+                                                if (project.cover_image && !project.cover_image.startsWith('http')) {
+                                                    setThumbnailUrl(`https://img.youtube.com/vi/${project.cover_image}/hqdefault.jpg`);
+                                                }
+                                            }}
                                         />
                                         {embedUrl && (
                                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">

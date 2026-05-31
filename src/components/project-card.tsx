@@ -16,12 +16,14 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isOpenModal, setIsOpenModal] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
     const embedUrl = getVideoEmbedUrl(project.video_link);
     const [thumbnailUrl, setThumbnailUrl] = useState(
         project.cover_image.startsWith('http') ? project.cover_image : `https://img.youtube.com/vi/${project.cover_image}/maxresdefault.jpg`
     );
+
+    const isVertical = project.category.includes("Reels") || project.category.includes("Shorts") || project.video_link.includes("instagram.com");
 
     useEffect(() => {
         if (project.video_link.includes("instagram.com")) {
@@ -36,33 +38,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         }
     }, [project.video_link]);
 
-    // Handle click outside to stop playing
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-                setIsPlaying(false);
-            }
-        };
-
-        if (isPlaying) {
-            document.addEventListener("mousedown", handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [isPlaying]);
-
     const handlePlayClick = (e: React.MouseEvent) => {
         e.stopPropagation();
         e.preventDefault();
-        setIsPlaying(true);
-    };
-
-    const handleStopClick = (e?: React.MouseEvent) => {
-        e?.stopPropagation();
-        e?.preventDefault();
-        setIsPlaying(false);
+        setIsOpenModal(true);
     };
 
     return (
@@ -71,76 +50,31 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <div className="flex flex-col h-full p-5">
                     {/* Media Area */}
                     <div className="relative overflow-hidden rounded-2xl aspect-video mb-5 shadow-lg bg-black isolate">
-                        <AnimatePresence mode="wait">
-                            {isPlaying ? (
-                                <m.div
-                                    key="video-player"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    className="absolute inset-0 z-20"
-                                >
-                                    {embedUrl ? (
-                                        <iframe
-                                            src={project.video_link.includes("instagram.com") ? embedUrl : `${embedUrl}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1`}
-                                            title={project.video_title}
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            className="w-full h-full border-0"
-                                        />
-                                    ) : (
-                                        <div className="w-full h-full bg-black/80 flex items-center justify-center p-6 text-center text-sm text-gray-300">
-                                            Video preview not available.
-                                        </div>
-                                    )}
-                                    <button
-                                        onClick={handleStopClick}
-                                        className="absolute top-2 right-2 bg-black/60 hover:bg-black/80 text-white p-1.5 rounded-full backdrop-blur-md transition-colors z-30"
-                                        aria-label="Close preview"
-                                    >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <path d="M18 6 6 18" />
-                                            <path d="m6 6 18 18" />
-                                        </svg>
-                                    </button>
-                                </m.div>
-                            ) : (
-                                <div
-                                    key="thumbnail"
-                                    className="relative w-full h-full cursor-pointer group/thumb"
-                                    onClick={handlePlayClick}
-                                >
-                                    <m.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        className="w-full h-full relative"
-                                    >
-                                        <Image
-                                            src={thumbnailUrl}
-                                            alt={project.video_title}
-                                            fill
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        />
-                                    </m.div>
+                        <div
+                            className="relative w-full h-full cursor-pointer group/thumb"
+                            onClick={handlePlayClick}
+                        >
+                            <div className="w-full h-full relative">
+                                <Image
+                                    src={thumbnailUrl}
+                                    alt={project.video_title}
+                                    fill
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    onError={() => {
+                                        if (!project.cover_image.startsWith('http')) {
+                                            setThumbnailUrl(`https://img.youtube.com/vi/${project.cover_image}/hqdefault.jpg`);
+                                        }
+                                    }}
+                                />
+                            </div>
 
-                                    {/* Play Button Overlay */}
-                                    <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[0px] group-hover/thumb:backdrop-blur-[2px]">
-                                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white transform scale-90 group-hover/thumb:scale-110 transition-all duration-300 shadow-xl shadow-black/20">
-                                            <Play className="ml-1 fill-white" size={28} />
-                                        </div>
-                                    </div>
+                            {/* Play Button Overlay */}
+                            <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300 flex items-center justify-center backdrop-blur-[0px] group-hover/thumb:backdrop-blur-[2px]">
+                                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white transform scale-90 group-hover/thumb:scale-110 transition-all duration-300 shadow-xl shadow-black/20">
+                                    <Play className="ml-1 fill-white" size={28} />
+                                </div>
+                            </div>
 
                                     {/* Duration Badge */}
                                     {project.duration && (
@@ -213,6 +147,69 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                 </div>
             </GlassmorphismCard>
+
+            {/* Immersive Video Modal */}
+            <AnimatePresence>
+                {isOpenModal && (
+                    <m.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setIsOpenModal(false)}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
+                    >
+                        {/* Close button */}
+                        <button
+                            onClick={() => setIsOpenModal(false)}
+                            className="absolute top-6 right-6 bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full backdrop-blur-md transition-colors z-50 cursor-pointer border border-white/10"
+                            aria-label="Close video"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+
+                        {/* Video container */}
+                        <m.div 
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className={`relative w-full overflow-hidden rounded-2xl shadow-2xl bg-black border border-white/10 ${
+                                isVertical 
+                                    ? "max-w-[340px] aspect-[9/16]" 
+                                    : "max-w-4xl aspect-video"
+                            }`}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {embedUrl ? (
+                                <iframe
+                                    src={project.video_link.includes("instagram.com") ? embedUrl : `${embedUrl}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1`}
+                                    title={project.video_title}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="w-full h-full border-0 absolute inset-0"
+                                />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center p-6 text-center text-sm text-gray-300">
+                                    Video preview not available.
+                                </div>
+                            )}
+                        </m.div>
+                    </m.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
