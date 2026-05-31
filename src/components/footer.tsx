@@ -70,16 +70,16 @@ export default function Footer() {
                 About
               </Link>
               <Link
-                href="/work-with-me"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                Work With Me
-              </Link>
-              <Link
                 href="/skills"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
               >
                 Skills
+              </Link>
+              <Link
+                href="/work-with-me"
+                className="text-gray-400 hover:text-blue-400 transition-colors"
+              >
+                Work With Me
               </Link>
               <Link
                 href="/contact"
