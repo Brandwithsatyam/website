@@ -26,7 +26,7 @@ export async function GET(request: Request) {
 
     if (match) {
       // Decode HTML entities like &amp; in the URL
-      const imageUrl = match[1].replaceAll("&amp;", "&");
+      const imageUrl = match[1].replace(/&amp;/g, "&");
       return NextResponse.json({ thumbnailUrl: imageUrl });
     }
 
