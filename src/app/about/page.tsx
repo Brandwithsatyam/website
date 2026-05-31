@@ -3,7 +3,6 @@
 import { m } from "framer-motion";
 import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import Marquee from "@/components/ui/marquee";
 import CTASection from "@/components/CTASection";
 import {
   Facebook,
@@ -18,7 +17,6 @@ import {
   Zap,
   Quote
 } from "lucide-react";
-import { clientsData } from "@/db/clients";
 
 export default function AboutPage() {
 
@@ -205,41 +203,7 @@ export default function AboutPage() {
           </div>
         </m.div>
 
-        {/* Clients Section */}
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Trusted By</h2>
-            <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full" />
-          </div>
 
-          <div
-            className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background py-10"
-            style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
-          >
-            <Marquee className="[--duration:20s]">
-              {clientsData.map((client) => (
-                <div key={client.id} className="mx-8 flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-50 hover:opacity-100 cursor-pointer">
-                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/5 p-4 flex items-center justify-center shadow-sm hover:shadow-md hover:bg-white/10 transition-all">
-                    <Image
-                      src={client.logo}
-                      alt={client.name}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <p className="mt-3 text-xs font-medium text-gray-400 group-hover:text-gray-200 transition-colors text-center whitespace-nowrap">
-                    {client.name}
-                  </p>
-                </div>
-              ))}
-            </Marquee>
-          </div>
-        </m.div>
 
         <CTASection
           title="Ready to Work Together?"
