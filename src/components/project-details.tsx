@@ -31,9 +31,9 @@ interface ProjectDetailsProps {
 }
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
-    const [showVideo, setShowVideo] = useState(false);
-    const embedUrl = getVideoEmbedUrl(project.video_link);
     const isVertical = project.category.includes("Reels") || project.category.includes("Shorts") || project.video_link.includes("instagram.com");
+    const [showVideo, setShowVideo] = useState(isVertical);
+    const embedUrl = getVideoEmbedUrl(project.video_link);
     const [thumbnailUrl, setThumbnailUrl] = useState(
         project.cover_image && project.cover_image.startsWith('http')
             ? project.cover_image

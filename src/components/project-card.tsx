@@ -8,6 +8,7 @@ import { Play } from "lucide-react";
 import GlassmorphismCard from "@/components/glassmorphism-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import { VideoProject } from "@/types/videos";
 import { getVideoEmbedUrl } from "@/lib/helper";
 
@@ -38,10 +39,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         }
     }, [project.video_link]);
 
+    const router = useRouter();
+
     const handlePlayClick = (e: React.MouseEvent) => {
         e.stopPropagation();
         e.preventDefault();
-        setIsOpenModal(true);
+        if (isVertical) {
+            router.push(`/project/${project.id}`);
+        } else {
+            setIsOpenModal(true);
+        }
     };
 
     return (
