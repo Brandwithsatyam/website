@@ -59,7 +59,7 @@ export default function Hero() {
                         transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
                         className="block w-full text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 pb-4 filter drop-shadow-[0_0_30px_rgba(59,130,246,0.25)]"
                     >
-                        CONTENT STRATEGIST
+                        CREATOR
                     </m.span>
                 </h1>
 

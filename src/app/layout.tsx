@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Brand with Satyam – Video Editor & Content Strategist",
+    default: "Brand with Satyam – Video Editor & Creator",
     template: "%s | Brand with Satyam",
   },
   description:
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   keywords: [
     "Satyam Sharma",
     "Video Editor",
-    "Content Strategist",
+    "Creator",
     "Visual Storyteller",
     "Commercial Video Editing",
     "Documentary Film Editor",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://brandwithsatyam.com",
-    title: "Brand with Satyam – Video Editor & Content Strategist",
+    title: "Brand with Satyam – Video Editor & Creator",
     description:
       "Transforming raw footage into polished, purpose-driven content. Expert in video editing and end-to-end content strategy.",
     siteName: "Brand with Satyam",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Brand with Satyam – Video Editor & Content Strategist",
+    title: "Brand with Satyam – Video Editor & Creator",
     description:
       "Professional video editing and content strategy for brands and creators.",
     creator: "@satyam_sharma",
@@ -107,7 +107,7 @@ export default function RootLayout({
                 "https://github.com/satyamsharma",
                 "https://twitter.com/satyam_sharma",
               ],
-              jobTitle: "Video Editor & Content Strategist",
+              jobTitle: "Video Editor & Creator",
               knowsAbout: [
                 "Video Editing",
                 "Content Strategy",
