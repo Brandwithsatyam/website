@@ -46,7 +46,7 @@ export default function Footer() {
               Brand with Satyam
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Professional Video Editor & Creator crafting compelling
+              Professional Video Editor & Content Creator crafting compelling
               narratives and purpose-driven content for global brands.
             </p>
           </div>

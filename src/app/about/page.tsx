@@ -33,7 +33,7 @@ export default function AboutPage() {
             The Creative Behind the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Lens</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Video Editor. Creator. Visual Storyteller.
+            Video Editor. Content Creator. Visual Storyteller.
           </p>
         </m.div>
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
                     </m.div>
                     <div className="h-1 w-16 md:w-20 bg-purple-500 mt-4 rounded-full" />
                     <p className="text-gray-300 mt-4 text-xs md:text-sm font-medium tracking-wide uppercase">
-                      Professional Video Editor & Creator
+                      Professional Video Editor & Content Creator
                     </p>
                   </div>
                 </div>

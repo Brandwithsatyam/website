@@ -74,7 +74,7 @@ export default function IntroAnimation() {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="mt-2 text-gray-400"
             >
-              Video Editor & Creator
+              Video Editor & Content Creator
             </m.p>
           </div>
         </m.div>
