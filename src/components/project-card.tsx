@@ -83,15 +83,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 </div>
                             </div>
 
-                                    {/* Duration Badge */}
-                                    {project.duration && (
-                                        <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-white/10 text-white text-[10px] font-bold px-2 py-1 rounded-md">
-                                            {project.duration}
-                                        </div>
-                                    )}
+                            {/* Duration Badge */}
+                            {project.duration && (
+                                <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-white/10 text-white text-[10px] font-bold px-2 py-1 rounded-md">
+                                    {project.duration}
                                 </div>
                             )}
-                        </AnimatePresence>
+                        </div>
                     </div>
 
                     {/* Content Area */}
